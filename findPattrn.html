@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pattern Matching</title>
+  </head>
+  <body>
+    <!-- script section start -->
+    <script>
+
+      // Get user inputs
+      var text = prompt("Enter the text");
+      var pat = prompt("Enter findable Pattern");
+      //Processing  program
+      var count = 0;
+      var MathIndex = new Array();
+      for (let index = 0; index < text.length; index++) {
+        var lastchar = index + pat.length;
+        if (lastchar > text.length) {
+          lastchar = text.length;
+        }
+        var autPat = "";
+        var arrayData = new Array();
+        for (let d = index; d < lastchar; d++) {
+          autPat += text[d];
+          arrayData.push(d);
+        }
+
+        if (autPat == pat) {
+          MathIndex.push(arrayData);
+          count++;
+        }
+      }
+      // show output
+      for (let k = 0; k < text.length; k++) {
+        document.write(text[k]);
+      }
+      document.write(
+        "<br><br><p>the count of '" +pat + "' is " + count + "</p>");
+      console.log(MathIndex);
+
+      // document.getElementById('body').style.background = tempColor;
+    </script>
+  </body>
+</html>
